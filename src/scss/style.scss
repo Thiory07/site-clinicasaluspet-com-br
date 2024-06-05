@@ -1,1 +1,17 @@
 @import "./bootstrap/scss/bootstrap";
+
+#main-navbar{
+    background-color: pink;
+    color: white;
+}
+#main-navbar a{
+    color: white;
+}
+#main-navbar a:nth-child(n+3) {
+    font-size: 2rem;
+}
+
+.whatsapp {
+    background-color: green;
+    border-radius: 15px;
+}
