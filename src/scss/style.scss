@@ -7,8 +7,10 @@
 #main-navbar a{
     color: white;
 }
-#main-navbar a:nth-child(n+3) {
-    font-size: 2rem;
+
+#main-navbar .align-self-center:nth-child(3) a {
+    color: darkgreen;
+    font-size: 42px;
 }
 
 .whatsapp {
