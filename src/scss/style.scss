@@ -48,3 +48,117 @@ section:nth-child(4) a, section:nth-child(4) h2{
     color: #FFF;
 
 }
+
+
+// 
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483645;
+    box-sizing: border-box;
+    width: 100%;
+  
+    background-color: #F1F6F4;
+  }
+  
+  .cookie-consent-banner__inner {     
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 0;
+  }
+  
+  .cookie-consent-banner__copy { 
+    margin-bottom: 16px;
+  }
+  
+  .cookie-consent-banner__actions {    
+  }
+  
+  .cookie-consent-banner__header {
+    margin-bottom: 8px;
+    
+    font-family: "CeraPRO-Bold", sans-serif, arial;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .cookie-consent-banner__description {
+    font-family: "CeraPRO-Regular", sans-serif, arial;
+    font-weight: normal;
+    color: #838F93;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .cookie-consent-banner__cta {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 164px;
+    padding: 11px 13px;
+      
+    border-radius: 2px;
+    
+    background-color: #2CE080;
+     
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    font-family: "CeraPRO-Regular", sans-serif, arial;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  
+  .cookie-consent-banner__cta--secondary { 
+    padding: 9px 13px;
+    
+    border: 2px solid #3A4649;
+    
+    background-color: transparent;
+    
+    color: #2CE080;
+  }
+  
+  .cookie-consent-banner__cta:hover {
+    background-color: #20BA68;
+  }
+  
+  .cookie-consent-banner__cta--secondary:hover {
+    border-color: #838F93;
+      
+    background-color: transparent;
+    
+    color: #22C870;
+  }
+  
+  .cookie-consent-banner__cta:last-child {
+    margin-left: 16px;
+  }
+
+//   
+#ts__form {
+    background-color: beige;
+    max-width: 320px;
+    color: black;
+    border-radius: 20px;
+    padding: 15px 25px;
+    border: black solid 5px;
+    position: fixed;
+    z-index: 9999;
+}
+#ts__form.middle-top {
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+#ts__form.bottom-right {
+    bottom: 80px;
+    right: 32px;
+}
+#whatsapp-button{
+    position: absolute; 
+    right: 12px; 
+    bottom: 0;
+}
