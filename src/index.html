@@ -30,7 +30,7 @@
       gtag("set", "ads_data_redaction", false);
 
       g__googleParams.configs.forEach( (conf,i)=>{
-        gtag('config', `${conf}`);
+        gtag('config', `${conf}`,{ ' allow_enhanced_conversions':true });
       });
       
 
