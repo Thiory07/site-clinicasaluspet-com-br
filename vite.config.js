@@ -1,8 +1,8 @@
 import { resolve } from 'path'
 
-export default {
-  root: resolve(__dirname, 'src'),
-  build: {
-    outDir: '../docs'
+export default{
+    root: './src',
+    build: {
+      outDir: '../docs'
+    }
   }
-}
