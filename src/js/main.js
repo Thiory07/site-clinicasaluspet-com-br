@@ -65,7 +65,7 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     gtag('set', 'user_data', g_ts_obj);
     // GA4
     gtag('event', 'contact_form', {
-        'link': el.textContent.trim(),
+        'tipo': 'enhanced',
         'send_to': g__googleParams.configs[1]
     });
     // Ads Enhanced
@@ -115,7 +115,7 @@ function consentUpdate(e){
       cookie_bannner.classList.add('d-none');
       overlay.classList.add('d-none');
       gtag('event', 'consent_click', {
-        'link': status,
+        'tipo': status,
         'send_to': g__googleParams.configs[1]
       });
 }
@@ -132,7 +132,7 @@ if (!sessionStorage.cookiesstatus || sessionStorage.cookiesstatus == 'denied'){
 // 
 /*
 gtag('event', 'contact_click', {
-    'link': linkText
+    'tipo': linkText
   });
 
 gtag('event', 'conversion', {
@@ -141,9 +141,9 @@ gtag('event', 'conversion', {
 */
 document.querySelectorAll('.ga4-click').forEach( (el,i)=>{
     el.addEventListener('click',(e)=>{
-        console.log(el.textContent.trim());
+        let element =  console.log(el.textContent.trim());
         gtag('event', 'contact_click', {
-            'link': el.textContent.trim(),
+            'tipo': el.textContent.trim(),
             'send_to': g__googleParams.configs[1]
           });
     });
