@@ -12,6 +12,8 @@ const realForm_text = document.querySelector('#real-form [name="text"]');
 const realFotm_submit = document.querySelector('#real-form [type="submit"]');
 const cookie_bannner = document.querySelector('#cookie-banner');
 const overlay = document.querySelector('#overlay');
+let params = new URL(document.location).searchParams;
+window.gclid = params.get("gclid");
 
 toggleelements.forEach((el,i)=>{
     el.addEventListener("click", function(e) {
@@ -80,23 +82,23 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     gtag('event', 'conversion', {'send_to': 'AW-16603220306/PfNJCK3DjrkZENKShO09'});
     
     
-    let gclid = 'Test-123',
-    url = `https://script.google.com/macros/s/AKfycbwoohJRISeX493EMbhRx4msAg_F2nLQQIvKDOf0VMNUGZyqv9i7FEWy2DZ4nA5eQYvl/exec`;
+    let gclid = window.gclid,
+    url = `https://script.google.com/macros/s/AKfycby-uX9S9CUKNEMg-9aP67SfEDbAdlFQ5QVHyAJLqbeHGhoU1b_ypaAW9ScxvKe_WeMF/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}`;
+
+    if (window.gclid && window.gclid!=''){url+=`&gclid=${gclid}`}
     g_ts_obj.gclid = gclid
     fetch( url,{
         redirect: "follow",
-        method: "POST",
-        body: JSON.stringify(g_ts_obj),
-        headers: {
-            "Content-Type": "text/plain;charset=utf-8",
-        }
+        method: "GET",
+        // body: JSON.stringify(g_ts_obj),
+        // headers: {
+        //     "Content-Type": "text/plain;charset=utf-8",
+        // },
+        mode: 'no-cors'
     })
-    .then(response => response.json())
-    .then((response) => {
-      console.log(response);
+    .then(response => {
+        realFotm_submit.click();
     });
-    realFotm_submit.click();
-
 });
 
 
@@ -189,3 +191,4 @@ setTimeout(function () {
         document.querySelector('.reject').click();
     }
   }, 2000);
+
