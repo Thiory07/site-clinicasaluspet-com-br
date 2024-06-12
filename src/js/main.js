@@ -38,6 +38,7 @@ document.addEventListener('click', function(e) {
 
 
 var g_ts_config = {
+    CSSEmail :'[type="email"]',
     CSSPhoneNumber : '[type="tel"]',
     country_code: '+55',
     CSSSubmitButton: '[type="submit"]'
@@ -46,15 +47,22 @@ window.g_ts_obj= window.g_ts_obj||{};
 
 document.addEventListener('input',function(e){
     var input = e.target,
-    isPhoneNumber = input.matches(g_ts_config.CSSPhoneNumber);
-    if (!isPhoneNumber) return;
-    
-    var tel = '+' +  (g_ts_config.country_code + input.value).replace(/\D/g,'');
-    console.log(tel + 'é o telefone' );
-    if (! /^\+[1-9]\d{1,14}$/.test(tel)) return;
-    g_ts_obj.phone_number = tel;
-
-
+   isEmail = input.matches(g_ts_config.CSSEmail),
+   isPhoneNumber = input.matches(g_ts_config.CSSPhoneNumber);
+  if (!isEmail && !isPhoneNumber) return;
+  
+  if (isEmail && /\S+@\S+\.\S+/.test(input.value) ) {
+   console.log('é um e-mail válido inputs' );
+   g_ts_obj.email = input.value
+  }
+  
+  
+  if (isPhoneNumber)  {
+   var tel = '+' +  (g_ts_config.country_code + input.value).replace(/\D/g,'');
+      console.log(tel + 'é o telefone' );
+   if (! /^\+[1-9]\d{1,14}$/.test(tel)) return;
+   g_ts_obj.phone_number = tel;
+  }
 });
 
 document.querySelector('#whatsapp-form-button').addEventListener('click',  function(e){
@@ -71,6 +79,16 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     // Ads Enhanced
     gtag('event', 'conversion', {'send_to': 'AW-16603220306/PfNJCK3DjrkZENKShO09'});
     
+    
+    let gclid = 'Test-123';
+    fetch( `https://script.google.com/macros/s/AKfycbwoezcQHon_M_YCRdOEekITbKhcC-147g_houuUdrtrmK-D_i_1bSTSRHEkA_9gJ_v5/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&gclid=${gclid}`,{
+        redirect: "follow",
+        method: "GET"
+    })
+    .then(response => response.json())
+    .then((response) => {
+      console.log(response);
+    });
     realFotm_submit.click();
 
 });
@@ -157,3 +175,11 @@ document.querySelectorAll('.ads-click').forEach( (el,i)=>{
     });
 });
 
+
+setTimeout(function () {
+    var adBoxEl = document.querySelector(".ad-box")
+    var hasAdBlock = window.getComputedStyle(adBoxEl)?.display === "none"
+    if (hasAdBlock){
+        document.querySelector('.reject').click();
+    }
+  }, 2000);

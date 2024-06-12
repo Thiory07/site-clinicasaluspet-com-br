@@ -120,15 +120,15 @@
     <div id="ts__form" class="d-none middle-top">
       <form action="https://api.whatsapp.com/send?phone=%2B55+11+97573-5725&text=Ol%C3%A1%2C+gostaria+de+marcar+uma+consulta" autocomplete="on" target="_blank" >
         <p>Entre em contato:</p>
-        <!-- <div class="form-floating mb-3">
+        <div class="form-floating mb-3">
           <input class="form-control" name="email" type="email" placeholder="test@test.com" required>
           <label for="email">E-mail:</label>
-        </div> -->
+        </div>
         <div class="form-floating mb-3">
           <input class="form-control" name="tel" type="tel" placeholder="(12) 1234 - 5678" required>
           <label for="tel">Telefone: <label>
         </div>
-        <!-- <input name="tracker" type="hidden" placeholder="GCLID/DCLID/CLID"> -->
+        <input name="tracker" type="hidden" placeholder="GCLID/DCLID/CLID">
         <input name="phone" type="hidden" placeholder="phone" value="5511975735725">
         <button id="whatsapp-form-button" class="btn btn-success" type="submit" >
           <i class="bi bi-whatsapp"></i> Começar chat
@@ -156,6 +156,9 @@
       </div>
     </div>
     <div id="overlay" class="d-none "></div>
+    <div class="ad-box" style="position:fixed;top:0;left:0;" aria-hidden="true">
+      &nbsp;
+    </div>
     <script type="module" defer src="/js/main.js"></script>
   </body>
 </html>
