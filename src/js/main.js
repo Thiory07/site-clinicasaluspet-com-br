@@ -80,10 +80,16 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     gtag('event', 'conversion', {'send_to': 'AW-16603220306/PfNJCK3DjrkZENKShO09'});
     
     
-    let gclid = 'Test-123';
-    fetch( `https://script.google.com/macros/s/AKfycbwoezcQHon_M_YCRdOEekITbKhcC-147g_houuUdrtrmK-D_i_1bSTSRHEkA_9gJ_v5/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&gclid=${gclid}`,{
+    let gclid = 'Test-123',
+    url = `https://script.google.com/macros/s/AKfycbwoohJRISeX493EMbhRx4msAg_F2nLQQIvKDOf0VMNUGZyqv9i7FEWy2DZ4nA5eQYvl/exec`;
+    g_ts_obj.gclid = gclid
+    fetch( url,{
         redirect: "follow",
-        method: "GET"
+        method: "POST",
+        body: JSON.stringify(g_ts_obj),
+        headers: {
+            "Content-Type": "text/plain;charset=utf-8",
+        }
     })
     .then(response => response.json())
     .then((response) => {
