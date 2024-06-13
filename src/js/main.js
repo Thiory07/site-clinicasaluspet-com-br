@@ -83,9 +83,9 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     // Ads Enhanced
     gtag('event', 'conversion', {
         'send_to': 'AW-16603220306/PfNJCK3DjrkZENKShO09',
-        "new_customer": localStorage.new_customer
+        "new_customer": localStorage.newuser
     });
-    localStorage.new_customer = false;
+    localStorage.newuser = false;
     
     let gclid = window.gclid,
     url = `https://script.google.com/macros/s/AKfycby-uX9S9CUKNEMg-9aP67SfEDbAdlFQ5QVHyAJLqbeHGhoU1b_ypaAW9ScxvKe_WeMF/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}`;
@@ -176,9 +176,9 @@ document.querySelectorAll('.ga4-click').forEach( (el,i)=>{
         gtag('event', 'contact_click', {
             'tipo': el.textContent.trim(),
             'send_to': g__googleParams.configs[1],
-            'new_customer': localStorage.new_customer
+            'new_customer': localStorage.newuser
           });
-          localStorage.new_customer = false;
+          localStorage.newuser = false;
     });
 });
 document.querySelectorAll('.ads-click').forEach( (el,i)=>{
@@ -186,9 +186,9 @@ document.querySelectorAll('.ads-click').forEach( (el,i)=>{
         console.log(el.textContent.trim());
         gtag('event', 'conversion', {
             'send_to': 'AW-16603220306/cn1vCO2447gZENKShO09',
-            'new_customer':localStorage.new_customer
+            'new_customer':localStorage.newuser
         });
-        localStorage.new_customer = false;
+        localStorage.newuser = false;
     });
 });
 
