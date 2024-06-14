@@ -88,7 +88,7 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     localStorage.newuser = false;
     
     let gclid = window.gclid,
-    url = `https://script.google.com/macros/s/AKfycby-uX9S9CUKNEMg-9aP67SfEDbAdlFQ5QVHyAJLqbeHGhoU1b_ypaAW9ScxvKe_WeMF/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}`;
+    url = `https://script.google.com/macros/s/AKfycbwFgFQVRY7Y9wji-A4i1T61jFzzqWhhUQMIWGoEIWmI8gA0o92kQqNVL9dtGfw23LU/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&ad_user_data=${window.g__googleParams.consent.ad_user_data}&ad_personalization=${window.g__googleParams.consent.ad_personalization}`;
 
     if (window.gclid && window.gclid!=''){url+=`&gclid=${gclid}`}
     g_ts_obj.gclid = gclid
