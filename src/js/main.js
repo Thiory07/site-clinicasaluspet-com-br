@@ -15,7 +15,7 @@ const overlay = document.querySelector('#overlay');
 let params = new URL(document.location).searchParams;
 window.gclid = params.get("gclid");
 
-localStorage.newuser = localStorage.newuser || true;
+localStorage.newuser = localStorage.newuser==='false'? false : true;
 
 toggleelements.forEach((el,i)=>{
     el.addEventListener("click", function(e) {
@@ -82,7 +82,7 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     });
     // Ads Enhanced
     gtag('event', 'conversion', {
-        'send_to': 'AW-16603220306/PfNJCK3DjrkZENKShO09',
+        'send_to': `${g__googleParams.configs[0]}/PfNJCK3DjrkZENKShO09`,
         "new_customer": localStorage.newuser
     });
     localStorage.newuser = false;
@@ -111,6 +111,7 @@ function consentUpdate(e){
     window.g__googleParams.consent = {};
     let ads_data_redaction = false;
     let status = 'denied';
+    let event = 'default';
     if ( e.target.classList.contains('reject')){
         window.g__googleParams.consent= {
             'ad_storage': 'denied',
@@ -120,6 +121,7 @@ function consentUpdate(e){
         }
         ads_data_redaction = false;
         status = 'denied';
+        event = 'update';
         console.log('Consent denied');
     }
     if ( e.target.classList.contains('accept')){
@@ -132,10 +134,11 @@ function consentUpdate(e){
         ads_data_redaction = true;
         status = 'granted';
         console.log('Consent granted');
+        event = 'update';
     }
    
 
-      gtag('consent', 'default', g__googleParams.consent);
+      gtag('consent', event, g__googleParams.consent);
 
       gtag("set", "ads_data_redaction", ads_data_redaction);
 
@@ -185,7 +188,7 @@ document.querySelectorAll('.ads-click').forEach( (el,i)=>{
     el.addEventListener('click',(e)=>{
         console.log(el.textContent.trim());
         gtag('event', 'conversion', {
-            'send_to': 'AW-16603220306/cn1vCO2447gZENKShO09',
+            'send_to': `${g__googleParams.configs[0]}/cn1vCO2447gZENKShO09`,
             'new_customer':localStorage.newuser
         });
         localStorage.newuser = false;
