@@ -12,7 +12,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag() {dataLayer.push(arguments);}
       gtag('js', new Date());
-      var g__googleParams = {
+      window.g__googleParams = {
         //Adicione os IDs que irá manipular
         'configs': ['AW-16603220306', 'G-GKR5HDL6Y5'],
         //Valor default para Analytics e Ads
@@ -23,6 +23,9 @@
           'analytics_storage': 'denied'
         }
       };
+      if (!window.location.href.includes('clinicasaluspet')){
+        g__googleParams.configs =  ['AW-01234567890', 'G-ABCDEFGHIJ']
+      }
 
       gtag('consent', 'default', g__googleParams.consent);
 
@@ -35,8 +38,8 @@
       
 
     </script>
-    <script type="module" crossorigin src="./assets/index-BtNGVjz-.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-yRyG06CD.css">
+    <script type="module" crossorigin src="./assets/index-B9vB6pRy.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CE_di3c5.css">
   </head><body>
     <script type="application/ld+json" class="schemantra">
       {
@@ -61,7 +64,7 @@
     <nav id="main-navbar" class="site-header sticky-top">
       <div class="d-flex justify-content-between container">
         <div class="align-self-center">
-          <a class="me-auto p-2 ga4-click" href="/" >
+          <a class="me-auto p-2 m-2 ga4-click" href="/" >
             <img src="images/logo.png" alt="Logo - Clínica Veterinária Salus Pet " width="120" height="120">
             <span class="d-none">Logo</span>
           </a>
@@ -73,8 +76,8 @@
           </a>
         </div>
         <div class="align-self-center">
-          <a class=" p-2 ga4-click ads-click" href="mailto:clinicavet.saluspet@gmail.com"><i class="bi bi-envelope"></i><span class="d-none">E-mail</span></a>
-          <a class=" p-2 ga4-click ads-click" href="//www.instagram.com/saluspetclinica/" target="_blank"><i class="bi bi-instagram"></i><span class="d-none">Instagram</span></a>
+          <a class=" p-2 m-2 ga4-click ads-click" href="mailto:clinicavet.saluspet@gmail.com"><i class="bi bi-envelope"></i><span class="d-none">E-mail</span></a>
+          <a class=" p-2 m-2 ga4-click ads-click" href="//www.instagram.com/saluspetclinica/" target="_blank"><i class="bi bi-instagram"></i><span class="d-none">Instagram</span></a>
         </div>
       </div>
     </nav>
@@ -117,23 +120,23 @@
           </div>
           <div class="col-sm-6">
             <ul>
-              <li class="p-2 ga4-click ads-click">
+              <li class="m-3 p-2 ga4-click ads-click">
                 <a href="tel:11975735725">
                   <i class="bi bi-telephone"></i> Telefone: (11) 97573-5725 </a>
               </li>
-              <li class="p-2 ga4-click">
+              <li class="m-3 p-2 ga4-click">
                 <a href="https://api.whatsapp.com/send?phone=%2B55+11+97573-5725&text=Ol%C3%A1%2C+gostaria+de+marcar+uma+consulta" class="js-wpp-form-toggle" js-position="bottom-right" >
                   <i class="bi bi-whatsapp"></i> Whatsapp: (11) 97573-5725 </a>
               </li>
-              <li class="p-2 ga4-click ads-click">
+              <li class="m-3 p-2 ga4-click ads-click">
                 <a href="mailto:clinicavet.saluspet@gmail.com">
                   <i class="bi bi-envelope"></i> Email: clinicavet.saluspet@gmail.com </a>
               </li>
-              <li class="p-2 ga4-click ads-click">
+              <li class="m-3 p-2 ga4-click ads-click">
                 <a href="//www.instagram.com/saluspetclinica/">
                   <i class="bi bi-instagram"></i> Instagram: @saluspetclinica </a>
               </li>
-              <li class="p-2"><h3>Endereço:</h3> <p>R. Raul Pompéia, 535 - Vila Rio Branco, Jundiaí - SP, 13215-420</p>
+              <li class="m-3 p-2"><h3>Endereço:</h3> <p>R. Raul Pompéia, 535 - Vila Rio Branco, Jundiaí - SP, 13215-420</p>
               <p>CNPJ:29.354.846/0001-01</p></li>
             </ul>
           </div>
