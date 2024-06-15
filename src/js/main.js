@@ -13,7 +13,7 @@ const realFotm_submit = document.querySelector('#real-form [type="submit"]');
 const cookie_bannner = document.querySelector('#cookie-banner');
 const overlay = document.querySelector('#overlay');
 let params = new URL(document.location).searchParams;
-window.gclid = params.get("gclid");
+window.localStorage.gclid = params.get("gclid")?  params.get("gclid") : window.localStorage.gclid;
 
 localStorage.newuser = localStorage.newuser==='false'? false : true;
 
@@ -71,7 +71,7 @@ document.addEventListener('input',function(e){
 
 document.querySelector('#whatsapp-form-button').addEventListener('click',  function(e){
     e.preventDefault();
-    
+    let form = e.target.closest('form');
     realForm_text.value = `Gostaria de marcar uma consulta, meu celular é ${g_ts_obj.phone_number}`;
 
     gtag('set', 'user_data', g_ts_obj);
@@ -87,11 +87,12 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     });
     localStorage.newuser = false;
     
-    let gclid = window.gclid,
+    let gclid = window.localStorage.gclid,
     url = `https://script.google.com/macros/s/AKfycbwFgFQVRY7Y9wji-A4i1T61jFzzqWhhUQMIWGoEIWmI8gA0o92kQqNVL9dtGfw23LU/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&ad_user_data=${window.g__googleParams.consent.ad_user_data}&ad_personalization=${window.g__googleParams.consent.ad_personalization}`;
 
-    if (window.gclid && window.gclid!=''){url+=`&gclid=${gclid}`}
-    g_ts_obj.gclid = gclid
+    if (window.localStorage.gclid && window.localStorage.gclid!=''){url+=`&gclid=${gclid}`}
+
+    if (gclid && form.checkValidity()){
     fetch( url,{
         redirect: "follow",
         method: "GET",
@@ -101,9 +102,10 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
         // },
         mode: 'no-cors'
     })
-    .then(response => {
-        realFotm_submit.click();
-    });
+    .then(response => { });
+    }
+    realFotm_submit.click();
+
 });
 
 
