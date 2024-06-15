@@ -88,7 +88,7 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     localStorage.newuser = false;
     
     let gclid = window.localStorage.gclid,
-    url = `https://script.google.com/macros/s/AKfycbwFgFQVRY7Y9wji-A4i1T61jFzzqWhhUQMIWGoEIWmI8gA0o92kQqNVL9dtGfw23LU/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&ad_user_data=${window.g__googleParams.consent.ad_user_data}&ad_personalization=${window.g__googleParams.consent.ad_personalization}`;
+    url = `https://script.google.com/macros/s/AKfycbwFgFQVRY7Y9wji-A4i1T61jFzzqWhhUQMIWGoEIWmI8gA0o92kQqNVL9dtGfw23LU/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&ad_user_data=${localStorage.cookiesstatus}&ad_personalization=${localStorage.cookiesstatus}`;
 
     if (window.localStorage.gclid && window.localStorage.gclid!=''){url+=`&gclid=${gclid}`}
 
@@ -148,6 +148,7 @@ function consentUpdate(e){
         gtag('config', `${conf}`, { ' allow_enhanced_conversions':true });
       });
       sessionStorage.cookiesstatus = status;
+      localStorage.cookiesstatus = status;
       cookie_bannner.classList.add('d-none');
       overlay.classList.add('d-none');
       gtag('event', 'consent_click', {
