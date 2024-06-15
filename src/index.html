@@ -44,8 +44,16 @@
         "@context": "https://schema.org",
         "@type": "VeterinaryCare",
         "@id": "VeterinaryCare",
-        "address": "R. Raul Pompéia, 535 - Vila Rio Branco, Jundiaí - SP, 13215-420",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Jundiaí",
+          "addressRegion": "São Paulo",
+          "postalCode": "13215-420",
+          "addressCountry": "Brazil",
+          "streetAddress": "R. Raul Pompéia, 535 - Vila Rio Branco"
+        },
         "alternateName": "Clinica Salus Pet",
+        "name":"Clinica Salus Pet",
         "areaServed": "Jundiaí São Paulo",
         "email": "clinicavet.saluspet@gmail.com",
         "taxID": "29.354.846/0001-01",
@@ -56,7 +64,10 @@
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Jundiaí",
-            "addressRegion": "São Paulo"
+            "addressRegion": "São Paulo",
+            "postalCode": "13215-420",
+            "addressCountry": "Brazil",
+            "streetAddress": "R. Raul Pompéia, 535 - Vila Rio Branco"
           }
       }
       }
