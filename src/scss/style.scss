@@ -51,7 +51,9 @@ section:nth-child(5) a, section:nth-child(5) h2{
     color: #FFF;
 
 }
-
+.whatsapp a{
+  color: #fff;
+}
 
 // 
 .cookie-consent-banner {
@@ -149,6 +151,11 @@ section:nth-child(5) a, section:nth-child(5) h2{
     top: 80px;
     left: 50%;
     transform: translate(-50%, 0);
+}
+#ts__form.middle-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 #ts__form.bottom-right {
     bottom: 80px;
