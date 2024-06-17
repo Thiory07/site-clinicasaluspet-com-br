@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Salus Pet, Clínica Veterinária em Jundiaí para Cães e Gatos</title>
     <meta name="description" content="Clínica Veterinária, Consultas, Cirurgias, Vacinação, Microchipagem, Ozonioterapia, Estética animal" />
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://www.googletagmanager.com https://pagead2.googlesyndication.com/ https://googleads.g.doubleclick.net https://www.googleadservices.com">
+
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16603220306"></script>
     <script>
@@ -23,7 +26,7 @@
           'analytics_storage': 'denied'
         }
       };
-      if (!window.location.href.includes('clinicasaluspet')){
+      if (!window.location.href.includes('test=1')){
         g__googleParams.configs =  ['AW-01234567890', 'G-ABCDEFGHIJ']
       }
 

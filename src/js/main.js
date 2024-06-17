@@ -123,6 +123,7 @@ function consentUpdate(e){
         }
         ads_data_redaction = false;
         status = 'denied';
+        localStorage.consent_status = status;
         event = 'update';
         console.log('Consent denied');
     }
@@ -135,6 +136,7 @@ function consentUpdate(e){
         }
         ads_data_redaction = true;
         status = 'granted';
+        localStorage.consent_status = status;
         console.log('Consent granted');
         event = 'update';
     }
@@ -207,3 +209,6 @@ setTimeout(function () {
     }
   }, 2000);
 
+if (localStorage.consent_status == 'granted'){
+    document.querySelector('.accept').click();
+}
