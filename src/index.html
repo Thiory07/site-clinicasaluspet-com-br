@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Salus Pet, Clínica Veterinária em Jundiaí para Cães e Gatos</title>
     <meta name="description" content="Clínica Veterinária, Consultas, Cirurgias, Vacinação, Microchipagem, Ozonioterapia, Estética animal" />
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://www.google.com https://www.googletagmanager.com https://pagead2.googlesyndication.com/ https://googleads.g.doubleclick.net https://www.googleadservices.com">
+    <!-- <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self' clinicasaluspet.com.br *.clinicasaluspet.com.br;
+    script-src 'self' clinicasaluspet.com.br *.clinicasaluspet.com.br 'unsafe-inline' tagmanager.google.com www.googletagmanager.com *.googletagmanager.com www.google-analytics.com ssl.google-analytics.com;
+    style-src 'self' clinicasaluspet.com.br *.clinicasaluspet.com.br 'unsafe-inline' tagmanager.google.com fonts.googleapis.com www.googletagmanager.com *.google-analytics.com *.googletagmanager.com;
+    img-src 'self' clinicasaluspet.com.br *.clinicasaluspet.com.br 'unsafe-inline' ssl.gstatic.com www.gstatic.com www.google-analytics.com;
+    font-src 'self' clinicasaluspet.com.br *.clinicasaluspet.com.br 'unsafe-inline' fonts.gstatic.com data;
+    connect-src 'self' clinicasaluspet.com.br *.clinicasaluspet.com.br 'unsafe-inline' *.google-analytics.com *.analytics.google.com *.googletagmanager.com ww.google-analytics.com;
+    "> -->
 
 
     <!-- Google tag (gtag.js) -->
@@ -29,17 +36,31 @@
       if (!window.location.href.includes('test=1')){
         g__googleParams.configs =  ['AW-01234567890', 'G-ABCDEFGHIJ']
       }
+      if (localStorage.consent_status == 'granted'){
+        window.g__googleParams.consent = {
+        
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        
+        };
+        gtag('consent', 'update', g__googleParams.consent);
+        gtag("set", "url_passthrough", false);
+        gtag("set", "ads_data_redaction", true);
 
-      gtag('consent', 'default', g__googleParams.consent);
+        g__googleParams.configs.forEach( (conf,i)=>{
+          gtag('config', `${conf}`,{ ' allow_enhanced_conversions':true });
+        }); 
+      }else{
+       gtag('consent', 'default', g__googleParams.consent);
+       gtag("set", "url_passthrough", false);
+       gtag("set", "ads_data_redaction", false);
 
-      gtag("set", "url_passthrough", false);
-      gtag("set", "ads_data_redaction", false);
-
-      g__googleParams.configs.forEach( (conf,i)=>{
+       g__googleParams.configs.forEach( (conf,i)=>{
         gtag('config', `${conf}`,{ ' allow_enhanced_conversions':true });
-      });
-      
-
+       });
+      }
     </script>
   </head><body>
     <script type="application/ld+json" class="schemantra">

@@ -163,7 +163,7 @@ document.querySelectorAll('.cookie-consent-banner__cta').forEach( (el,i) =>{
     el.addEventListener('click', consentUpdate);
 });
 
-if (!sessionStorage.cookiesstatus || sessionStorage.cookiesstatus == 'denied'){
+if (!sessionStorage.cookiesstatus || sessionStorage.cookiesstatus == 'denied' || localStorage.consent_status != 'granted'){
     cookie_bannner.classList.remove('d-none');
     overlay.classList.remove('d-none');
 }
@@ -209,6 +209,3 @@ setTimeout(function () {
     }
   }, 2000);
 
-if (localStorage.consent_status == 'granted'){
-    document.querySelector('.accept').click();
-}
