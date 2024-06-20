@@ -74,19 +74,6 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     let form = e.target.closest('form');
     realForm_text.value = `Gostaria de marcar uma consulta, meu celular é ${g_ts_obj.phone_number}`;
 
-    gtag('set', 'user_data', g_ts_obj);
-    // GA4
-    gtag('event', 'contact_form', {
-        'tipo': 'enhanced',
-        'send_to': g__googleParams.configs[1]
-    });
-    // Ads Enhanced
-    gtag('event', 'conversion', {
-        'send_to': `${g__googleParams.configs[0]}/PfNJCK3DjrkZENKShO09`,
-        "new_customer": localStorage.newuser
-    });
-    localStorage.newuser = false;
-    
     let gclid = window.localStorage.gclid,
     url = `https://script.google.com/macros/s/AKfycbwFgFQVRY7Y9wji-A4i1T61jFzzqWhhUQMIWGoEIWmI8gA0o92kQqNVL9dtGfw23LU/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&ad_user_data=${localStorage.cookiesstatus}&ad_personalization=${localStorage.cookiesstatus}`;
 
@@ -104,6 +91,22 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     })
     .then(response => { });
     }
+
+    console.log(localStorage.newuser);
+    gtag('set', 'user_data', g_ts_obj);
+    // GA4
+    gtag('event', 'contact_form', {
+        'tipo': 'enhanced',
+        'send_to': g__googleParams.configs[1],
+        "new_customer": localStorage.newuser
+    });
+    // Ads Enhanced
+    gtag('event', 'conversion', {
+        'send_to': `${g__googleParams.configs[0]}/PfNJCK3DjrkZENKShO09`,
+        "new_customer": localStorage.newuser
+    });
+    localStorage.newuser = false;
+    
     realFotm_submit.click();
 
 });
@@ -168,16 +171,7 @@ if (!sessionStorage.cookiesstatus || sessionStorage.cookiesstatus == 'denied' ||
     overlay.classList.remove('d-none');
 }
 
-// 
-/*
-gtag('event', 'contact_click', {
-    'tipo': linkText
-  });
 
-gtag('event', 'conversion', {
-    'send_to': 'AW-16603220306/cn1vCO2447gZENKShO09'
-});
-*/
 document.querySelectorAll('.ga4-click').forEach( (el,i)=>{
     el.addEventListener('click',(e)=>{
         let element =  console.log(el.textContent.trim());
