@@ -93,19 +93,22 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     }
 
     console.log(localStorage.newuser);
-    gtag('set', 'user_data', g_ts_obj);
-    // GA4
-    gtag('event', 'contact_form', {
-        'tipo': 'enhanced',
-        'send_to': g__googleParams.configs[1],
-        "new_customer": localStorage.newuser
-    });
-    // Ads Enhanced
-    gtag('event', 'conversion', {
-        'send_to': `${g__googleParams.configs[0]}/PfNJCK3DjrkZENKShO09`,
-        "new_customer": localStorage.newuser
-    });
-    localStorage.newuser = false;
+    if (!localStorage.fired_Contato_Enhanced ){
+        gtag('set', 'user_data', g_ts_obj);
+        // GA4
+        gtag('event', 'contact_form', {
+            'tipo': 'enhanced',
+            'send_to': g__googleParams.configs[1],
+            "new_customer": localStorage.newuser
+        });
+        // Ads Enhanced
+        gtag('event', 'conversion', {
+            'send_to': `${g__googleParams.configs[0]}/PfNJCK3DjrkZENKShO09`,
+            "new_customer": localStorage.newuser
+        });
+        localStorage.newuser = false;
+        localStorage.fired_Contato_Enhanced = true;
+    }
     
     realFotm_submit.click();
 
@@ -146,7 +149,6 @@ function consentUpdate(e){
    
 
       gtag('consent', event, g__googleParams.consent);
-
       gtag("set", "ads_data_redaction", ads_data_redaction);
 
       g__googleParams.configs.forEach( (conf,i)=>{
@@ -186,6 +188,8 @@ document.querySelectorAll('.ga4-click').forEach( (el,i)=>{
 document.querySelectorAll('.ads-click').forEach( (el,i)=>{
     el.addEventListener('click',(e)=>{
         console.log(el.textContent.trim());
+        if( localStorage.fired_Contato_simples){ return; }
+        localStorage.fired_Contato_simples= true;
         gtag('event', 'conversion', {
             'send_to': `${g__googleParams.configs[0]}/cn1vCO2447gZENKShO09`,
             'new_customer':localStorage.newuser
