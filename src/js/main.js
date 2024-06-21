@@ -13,7 +13,7 @@ const realFotm_submit = document.querySelector('#real-form [type="submit"]');
 const cookie_bannner = document.querySelector('#cookie-banner');
 const overlay = document.querySelector('#overlay');
 let params = new URL(document.location).searchParams;
-window.localStorage.gclid = params.get("gclid")?  params.get("gclid") : window.localStorage.gclid;
+localStorage.gclid = params.get("gclid")?  params.get("gclid") : localStorage.gclid;
 
 localStorage.newuser = localStorage.newuser==='false'? false : true;
 
@@ -93,7 +93,7 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     }
 
     console.log(localStorage.newuser);
-    if (!localStorage.fired_Contato_Enhanced ){
+    if (!sessionStorage.fired_Contato_Enhanced ){
         gtag('set', 'user_data', g_ts_obj);
         // GA4
         gtag('event', 'contact_form', {
@@ -107,7 +107,7 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
             "new_customer": localStorage.newuser
         });
         localStorage.newuser = false;
-        localStorage.fired_Contato_Enhanced = true;
+        sessionStorage.fired_Contato_Enhanced = true;
     }
     
     realFotm_submit.click();
@@ -152,7 +152,7 @@ function consentUpdate(e){
       gtag("set", "ads_data_redaction", ads_data_redaction);
 
       g__googleParams.configs.forEach( (conf,i)=>{
-        gtag('config', `${conf}`, { ' allow_enhanced_conversions':true });
+        gtag('config', `${conf}`, { 'allow_enhanced_conversions':true });
       });
       sessionStorage.cookiesstatus = status;
       localStorage.cookiesstatus = status;
@@ -188,8 +188,8 @@ document.querySelectorAll('.ga4-click').forEach( (el,i)=>{
 document.querySelectorAll('.ads-click').forEach( (el,i)=>{
     el.addEventListener('click',(e)=>{
         console.log(el.textContent.trim());
-        if( localStorage.fired_Contato_simples){ return; }
-        localStorage.fired_Contato_simples= true;
+        if( sessionStorage.fired_Contato_simples){ return; }
+        sessionStorage.fired_Contato_simples= true;
         gtag('event', 'conversion', {
             'send_to': `${g__googleParams.configs[0]}/cn1vCO2447gZENKShO09`,
             'new_customer':localStorage.newuser

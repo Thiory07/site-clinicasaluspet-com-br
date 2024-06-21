@@ -50,7 +50,7 @@
         gtag("set", "ads_data_redaction", true);
 
         g__googleParams.configs.forEach( (conf,i)=>{
-          gtag('config', `${conf}`,{ ' allow_enhanced_conversions':true });
+          gtag('config', `${conf}`,{ 'allow_enhanced_conversions':true });
         }); 
       }else{
        gtag('consent', 'default', g__googleParams.consent);
@@ -58,7 +58,7 @@
        gtag("set", "ads_data_redaction", false);
 
        g__googleParams.configs.forEach( (conf,i)=>{
-        gtag('config', `${conf}`,{ ' allow_enhanced_conversions':true });
+        gtag('config', `${conf}`,{ 'allow_enhanced_conversions':true });
        });
       }
     </script>
@@ -195,9 +195,9 @@
           <div class="col-sm-4">
             <h3>Endereço:</h3> 
               <div itemscope itemtype="https://schema.org/LocalBusiness">
-                <h1 itemprop="name">Clínica Veterinária Salus Pet</h1>
+                <h2 itemprop="name">Clínica Veterinária Salus Pet</h2>
                 <p itemprop="description">Consultório e banho e tosa para cães e gatos em Jundiaí.</p>
-                <address itemscope itemtype="https://schema.org/PostalAddress">
+                <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                   <p itemprop="streetAddress">R. Raul Pompéia, 535 - Vila Rio Branco</p>
                   <p itemprop="addressLocality">Jundiaí</p>
                   <p itemprop="addressRegion">São Paulo</p>
