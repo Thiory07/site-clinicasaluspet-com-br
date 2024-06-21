@@ -79,7 +79,7 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
 
     if (window.localStorage.gclid && window.localStorage.gclid!=''){url+=`&gclid=${gclid}`}
 
-    if (gclid && form.checkValidity()){
+    if ( form.checkValidity()){
     fetch( url,{
         redirect: "follow",
         method: "GET",
