@@ -15,7 +15,7 @@ const overlay = document.querySelector('#overlay');
 let params = new URL(document.location).searchParams;
 localStorage.gclid = params.get("gclid")?  params.get("gclid") : localStorage.gclid;
 
-localStorage.newuser = localStorage.newuser==='false'? false : true;
+window.newuser = localStorage.newuser==='false'? false : true;
 
 toggleelements.forEach((el,i)=>{
     el.addEventListener("click", function(e) {
@@ -55,7 +55,7 @@ document.addEventListener('input',function(e){
    isPhoneNumber = input.matches(g_ts_config.CSSPhoneNumber);
   if (!isEmail && !isPhoneNumber) return;
   
-  if (isEmail && /\S+@\S+\.\S+/.test(input.value) ) {
+  if (isEmail && /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(input.value) ) {
    console.log('é um e-mail válido inputs' );
    g_ts_obj.email = input.value
   }
@@ -99,12 +99,12 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
         gtag('event', 'contact_form', {
             'tipo': 'enhanced',
             'send_to': g__googleParams.configs[1],
-            "new_customer": localStorage.newuser
+            "new_customer": window.newuser 
         });
         // Ads Enhanced
         gtag('event', 'conversion', {
             'send_to': `${g__googleParams.configs[0]}/PfNJCK3DjrkZENKShO09`,
-            "new_customer": localStorage.newuser
+            "new_customer": window.newuser 
         });
         localStorage.newuser = false;
         sessionStorage.fired_Contato_Enhanced = true;
@@ -180,7 +180,7 @@ document.querySelectorAll('.ga4-click').forEach( (el,i)=>{
         gtag('event', 'contact_click', {
             'tipo': el.textContent.trim(),
             'send_to': g__googleParams.configs[1],
-            'new_customer': localStorage.newuser
+            'new_customer': window.newuser 
           });
           localStorage.newuser = false;
     });
@@ -192,7 +192,7 @@ document.querySelectorAll('.ads-click').forEach( (el,i)=>{
         sessionStorage.fired_Contato_simples= true;
         gtag('event', 'conversion', {
             'send_to': `${g__googleParams.configs[0]}/cn1vCO2447gZENKShO09`,
-            'new_customer':localStorage.newuser
+            'new_customer':window.newuser 
         });
         localStorage.newuser = false;
     });
