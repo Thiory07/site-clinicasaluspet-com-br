@@ -75,7 +75,8 @@ document.querySelector('#whatsapp-form-button').addEventListener('click',  funct
     realForm_text.value = `Gostaria de marcar uma consulta, meu celular é ${g_ts_obj.phone_number}`;
 
     let gclid = window.localStorage.gclid,
-    url = `https://script.google.com/macros/s/AKfycbwFgFQVRY7Y9wji-A4i1T61jFzzqWhhUQMIWGoEIWmI8gA0o92kQqNVL9dtGfw23LU/exec?email=${g_ts_obj.email}&telephone=${g_ts_obj.phone_number}&ad_user_data=${localStorage.cookiesstatus}&ad_personalization=${localStorage.cookiesstatus}`;
+    
+    url = `https://script.google.com/macros/s/AKfycbwQHVmV8QKeOxovIvqtx5k_djexlMVBLLOiORh7kCZsyW7nWagQSsrESUaotT2aYcTB/exec?email=${g_ts_obj.email}&phone_number=${g_ts_obj.phone_number}&ad_user_data=${localStorage.cookiesstatus}&ad_personalization=${localStorage.cookiesstatus}`;
 
     if (window.localStorage.gclid && window.localStorage.gclid!=''){url+=`&gclid=${gclid}`}
 
